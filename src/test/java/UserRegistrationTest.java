@@ -1,6 +1,8 @@
 import com.bridgelabz.UserRegistration;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class UserRegistrationTest {
     @Test
     public void ValidateFirstName()
@@ -9,7 +11,14 @@ public class UserRegistrationTest {
         assertEquals(true,registration.toValidateFirstName("Tushal"));
     }
 
-    private void assertEquals(boolean b, boolean tushal) {
+
+
+    @Test
+    public void validateLastName()
+    {
+        UserRegistration registration=new UserRegistration();
+        assertEquals(true,registration.toValidateLastName("kumar"));
+
     }
 
 }
