@@ -28,4 +28,10 @@ public class UserRegistrationTest {
         UserRegistration registration = new UserRegistration();
         assertEquals(true, registration.toValidatePhone("91 9852527734"));
     }
+    @Test
+    public void validatePassword()
+    {
+        UserRegistration registration=new UserRegistration();
+        assertEquals(true,registration.toValidatePassword("Tush@133"));
+    }
 }

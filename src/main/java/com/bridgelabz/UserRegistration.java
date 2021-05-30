@@ -27,4 +27,8 @@ public class UserRegistration {
         boolean matches = Pattern.matches(pattern_Phone, number);
         return matches;
     }
+    public boolean toValidatePassword(String password) {
+        boolean matches=Pattern.matches(pattern_Password,password);
+        return matches;
+    }
 }
