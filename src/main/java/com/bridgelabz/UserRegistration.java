@@ -17,4 +17,8 @@ public class UserRegistration {
         boolean matches = Pattern.matches(pattern_name, lastName);
         return matches;
     }
+    public boolean toValidateEmails(String Email) {
+        boolean matches=Pattern.matches(pattern_Email,Email);
+        return matches;
+    }
 }
