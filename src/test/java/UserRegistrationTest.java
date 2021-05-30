@@ -23,4 +23,9 @@ public class UserRegistrationTest {
         UserRegistration registration = new UserRegistration();
         assertEquals(true, registration.toValidateEmails("abc.xyz@yahoo.co.in"));
     }
+    @Test
+    public void validatePhone() {
+        UserRegistration registration = new UserRegistration();
+        assertEquals(true, registration.toValidatePhone("91 9852527734"));
+    }
 }
