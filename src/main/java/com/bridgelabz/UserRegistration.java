@@ -20,7 +20,7 @@ public class UserRegistration {
         return matches;
     }
 
-    public double toValidateEmails(String Email) {
+    public boolean toValidateEmails(String Email) {
         ArrayList<String> emails = new ArrayList<String>();
         emails.add("abc@yahoo.com");
         emails.add("abc-100@yahoo.com");
@@ -47,14 +47,16 @@ public class UserRegistration {
         emails.add("abc@gmail.com.1a");
         emails.add("abc@gmail.com.aa.au");
 
-        String regexEmail = "^[0-9A-Za-z]+(([._+-]{0,1})[0-9A-Za-z]+)*@[0-9A-Za-z]+.[a-z]{2,4}.([a-z]{2,3})*$";
+
+        String regexEmail = null;
         Pattern p = Pattern.compile(regexEmail);
         for (String email : emails) {
             //Create instance of matcher
             Matcher matcher = p.matcher(email);
             System.out.println(email + " : " + matcher.matches() + "\n");
         }
-        return 0;
+
+        return false;
     }
 
 
@@ -66,4 +68,14 @@ public class UserRegistration {
             boolean matches = Pattern.matches(pattern_Password, password);
             return matches;
         }
+    private boolean patternChecker(String input,String fieldPattern) {
+        Pattern pattern = Pattern.compile(fieldPattern);
+        Matcher matcher = pattern.matcher(input);
+        boolean result = matcher.matches();
+        return result;
     }
+
+    public boolean EmailValidatorTest(String emailId) {
+        return false;
+    }
+}
