@@ -1,4 +1,5 @@
 import com.bridgelabz.UserRegistration;
+import com.bridgelabz.UserRegistrationException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +25,7 @@ import java.util.Collection;
         userRegistration= new UserRegistration();
     }
 
-
+// all email sample are parameterized
     @Parameterized.Parameters
     public static Collection emailIds_With_ExpectedResult(){
         return Arrays.asList(new Object[][]{
@@ -52,9 +53,13 @@ import java.util.Collection;
                 {"abc@gmail.com.aa.au", false}
         });
     }
-    @Test
-    public void givenEmailIds_WhenProper_ShouldReturnExpectedResult() {
-        boolean result = userRegistration.EmailValidatorTest(emailId);
-        Assert.assertEquals(this.expectedResult, userRegistration.EmailValidatorTest(emailId));
-    }
+        @Test
+        public void givenEmailIds_WhenProper_ShouldReturnExpectedResult() {
+            try {
+                boolean result = userRegistration.toValidateEmail(emailId);
+                Assert.assertEquals(this.expectedResult, userRegistration.toValidateEmail(emailId));
+            } catch (UserRegistrationException exception) {
+                exception.printStackTrace();
+            }
+        }
 }
