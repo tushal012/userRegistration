@@ -17,76 +17,55 @@ public class UserRegistrationTest {
     //for firstName testcase
     @Test
     public void givenFirstName_WhenFirstLatterUpperCase_ShouldReturnTrue() {
-        UserRegistration userRegistration = new UserRegistration();
-        try {
-            Assertions.assertTrue(userRegistration.toValidateFirstName("Tushal"));
-        } catch (UserRegistrationException exception) {
-            exception.printStackTrace();
-        }
+
+        boolean result = userRegistration.toValidateFirstName.validate("tushal");
+        Assertions.assertTrue(result);
+        userRegistration.checkException(result);
 
     }
     @Test
     public void givenFirstName_WhenEntryFieldNull_shouldReturnFalse(){
-        UserRegistration userRegistration = new UserRegistration();
-        try {
-            Assertions.assertFalse(userRegistration.toValidateFirstName(""));
-        } catch (UserRegistrationException  exception) {
-            NullPointerException.class.getClass();
-            System.out.println("Entry Field Should not null");
-        }
+
+        boolean result = userRegistration.toValidateFirstName.validate("");
+        Assertions.assertTrue(result);
+        userRegistration.checkException(result);
+
     }
     @Test
     public void givenFirstName_WhenLessThanThreeChars_ShouldReturnFalse() {
-        UserRegistration userRegistration = new UserRegistration();
-        try {
-            Assertions.assertFalse(userRegistration.toValidateFirstName("Tus"));
-        } catch (UserRegistrationException exception) {
-            exception.printStackTrace();
-            System.out.println("FirstName should not less than 3 digit");
-        }
+
+        boolean result = userRegistration.toValidateFirstName.validate("tus");
+        Assertions.assertTrue(result);
+        userRegistration.checkException(result);
     }
 
     @Test
     public void givenFirstName_WhenHasNumber_ShouldReturnFalse() {
-        try {
-            Assertions.assertFalse(userRegistration.toValidateFirstName("tushal01"));
-        } catch (UserRegistrationException exception) {
-            exception.printStackTrace();
-        }
+        boolean result = userRegistration.toValidateFirstName.validate("tushal012");
+        Assertions.assertTrue(result);
+        userRegistration.checkException(result);
     }
 
     @Test
     public void givenFirstName_WhenHasSpecialChar_ShouldReturnFalse() {
-        boolean result = false;
-        try {
-            result = userRegistration.toValidateFirstName("Tushal@");
-        } catch (UserRegistrationException exception) {
-            exception.printStackTrace();
-        }
-        Assertions.assertFalse(result);
+        boolean result = userRegistration.toValidateFirstName.validate("tushal012");
+        Assertions.assertTrue(result);
+        userRegistration.checkException(result);
     }
     // for lastName testcases
     @Test
     public void givenLastName_WhenFirstLetterUpperCase_ShouldReturnTrue(){
-        boolean result = false;
-        try {
-            result = userRegistration.toValidateLastName("kashyap");
-        } catch (UserRegistrationException exception) {
-            exception.printStackTrace();
-        }
+        boolean result = userRegistration.toValidateFirstName.validate("tushal012");
         Assertions.assertTrue(result);
+        userRegistration.checkException(result);;
     }
 
 
     @Test
     public void givenLastName_WhenHasNumber_ShouldReturnFalse() {
-        boolean result = false;
-        try {
-            result = userRegistration.toValidateFirstName("kashyap1");
-        } catch (UserRegistrationException exception) {
-            exception.printStackTrace();
-        }
-        Assertions.assertFalse(result);
+        boolean result = userRegistration.toValidatelastName.validate("kashyap");
+        Assertions.assertTrue(result);
+        userRegistration.checkException(result);
     }
 
     //for Email testCases
@@ -105,7 +84,7 @@ public class UserRegistrationTest {
     public void givenPhoneNum_WhenSpaceIsMentioned_ShouldReturnTrue(){
         boolean result = false;
         try {
-            result = userRegistration.toValidatePhone("91 9960077482");
+            result = userRegistration.toValidatePhone("91 9852527734");
         } catch (UserRegistrationException exception) {
             exception.printStackTrace();
         }
@@ -117,7 +96,7 @@ public class UserRegistrationTest {
     public void givenPhoneNum_WhenLessDigits_ShouldReturnFalse() {
         boolean result = false;
         try {
-            result = userRegistration.toValidatePhone("9960077482");
+            result = userRegistration.toValidatePhone("9852527734");
         } catch (UserRegistrationException exception) {
             exception.printStackTrace();
         }
