@@ -12,6 +12,7 @@ public class UserRegistrationException extends Exception {
     public UserRegistrationException(ExceptionType type,String message) {
         super(message);
         this.type = type;
+
     }
 
 }
