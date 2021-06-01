@@ -25,6 +25,7 @@ public class UserRegistration {
 
         public boolean toValidateEmail(String Email) throws UserRegistrationException{
         return patternChecker(Email, EMAIL_PATTERN);
+
         }
 
 
