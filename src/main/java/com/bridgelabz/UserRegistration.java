@@ -23,17 +23,12 @@ public class UserRegistration {
         // initializing checkException
         public void customException(boolean result) throws UserRegistrationException {
             try {
-                if (result == false)
+                if (result == true)
                     throw new UserRegistrationException(UserRegistrationException.ExceptionType.ENTERED_INVALID, "Please give valid Entry");
             }catch (UserRegistrationException exception){
                 throw new UserRegistrationException(UserRegistrationException.ExceptionType.ENTERED_NULL, "Entry Should be not null ");
             }
         }
-
-
-    public boolean EmailValidatorTest(String email) {
-            return false;
-    }
 
     public boolean toValidateEmail(String email) {
             return false;
