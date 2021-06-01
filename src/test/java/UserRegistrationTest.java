@@ -16,7 +16,7 @@ public class UserRegistrationTest {
 
     //for firstName testcase
     @Test
-    public void givenFirstName_WhenFirstLatterUpperCase_ShouldReturnTrue() {
+    public void givenFirstName_WhenFirstLetterUpperCase_ShouldReturnTrue() {
         UserRegistration userRegistration = new UserRegistration();
         try {
             Assertions.assertTrue(userRegistration.toValidateFirstName("Tushal"));
@@ -26,7 +26,7 @@ public class UserRegistrationTest {
 
     }
     @Test
-    public void givenFirstName_WhenEntryFieldNull_shouldReturnFalse(){
+    public void givenFirstName_WhenEntryFieldEmpty_shouldReturnFalse(){
         UserRegistration userRegistration = new UserRegistration();
         try {
             Assertions.assertFalse(userRegistration.toValidateFirstName(""));
