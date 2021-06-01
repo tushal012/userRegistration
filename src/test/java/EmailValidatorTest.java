@@ -54,12 +54,10 @@ import java.util.Collection;
         });
     }
         @Test
-        public void givenEmailIds_WhenProper_ShouldReturnExpectedResult() {
-            try {
-                boolean result = userRegistration.toValidateEmail(emailId);
-                Assert.assertEquals(this.expectedResult, userRegistration.toValidateEmail(emailId));
-            } catch (UserRegistrationException exception) {
-                exception.printStackTrace();
-            }
+        public void givenEmailIds_WhenProper_ShouldReturnExpectedResult() throws UserRegistrationException {
+            String email = null;
+            boolean result = userRegistration.toValidateEmail(email);
+            Assert.assertEquals(this.expectedResult, userRegistration.toValidateEmail(email));
+            userRegistration.customException(result);
         }
 }
