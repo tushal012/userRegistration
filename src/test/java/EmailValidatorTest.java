@@ -55,11 +55,8 @@ import java.util.Collection;
     }
         @Test
         public void givenEmailIds_WhenProper_ShouldReturnExpectedResult() {
-            try {
-                boolean result = userRegistration.toValidateEmail(emailId);
-                Assert.assertEquals(this.expectedResult, userRegistration.toValidateEmail(emailId));
-            } catch (UserRegistrationException exception) {
-                exception.printStackTrace();
-            }
+            String email;
+            boolean result = userRegistration.toValidateEmail(email);
+            Assert.assertEquals(this.expectedResult, userRegistration.toValidateEmail(email));
         }
 }
