@@ -29,7 +29,9 @@ public class UserRegistrationTest {
 =======
 
 
-        Assert.assertEquals("valid", userRegistration.toValidateFirstName.validate("Tushal"));
+        Assert.assertEquals(true, userRegistration.toValidateFirstName.validate("Tushal"));
+
+        
 
 >>>>>>> uc13-lambdaFunctionValidate
 
@@ -48,7 +50,7 @@ public class UserRegistrationTest {
 =======
     public void givenFirstName_WhenEntryFieldEmpty_shouldReturnFalse() {
 
-        Assert.assertEquals("NULL", userRegistration.toValidateFirstName.validate(""));
+        Assert.assertEquals(false, userRegistration.toValidateFirstName.validate(""));
 
 
 
@@ -57,21 +59,21 @@ public class UserRegistrationTest {
 
     @Test
     public void givenFirstName_WhenLessThanThreeChars_ShouldReturnFalse() {
-        Assert.assertEquals("Invalid", userRegistration.toValidateFirstName.validate("tu"));
+        Assert.assertEquals(false, userRegistration.toValidateFirstName.validate("tu"));
 
     }
 
     @Test
     public void givenFirstName_WhenHasNumber_ShouldReturnFalse() {
 
-        Assert.assertEquals("Invalid",userRegistration.toValidateFirstName.validate("tushal1"));
+        Assert.assertEquals(false,userRegistration.toValidateFirstName.validate("tushal1"));
 
     }
 
     @Test
     public void givenFirstName_WhenHasSpecialChar_ShouldReturnFalse() {
 
-        Assert.assertEquals("Invalid",userRegistration.toValidateFirstName.validate("tushal#"));
+        Assert.assertEquals(false,userRegistration.toValidateFirstName.validate("tushal#"));
 
     }
 
@@ -79,7 +81,7 @@ public class UserRegistrationTest {
     @Test
     public void givenLastName_WhenFirstLetterUpperCase_ShouldReturnTrue() {
 
-        Assert.assertEquals("valid",userRegistration.toValidateLastName.validate("Kashyap"));
+        Assert.assertEquals(true,userRegistration.toValidateLastName.validate("Kashyap"));
 
         ;
     }
@@ -88,7 +90,7 @@ public class UserRegistrationTest {
     @Test
     public void givenLastName_WhenHasNumber_ShouldReturnFalse() {
 
-        Assert.assertEquals("Invalid",userRegistration.toValidateLastName.validate("Kashyap1"));
+        Assert.assertEquals(false,userRegistration.toValidateLastName.validate("Kashyap1"));
 
     }
 
@@ -96,7 +98,7 @@ public class UserRegistrationTest {
     @Test
     public void givenEmail_WhenProper_ShouldReturnTrue() {
 
-        Assert.assertEquals("valid",userRegistration.toValidateEmail.validate("abc.syz@bl.co.in"));
+        Assert.assertEquals(true,userRegistration.toValidateEmail.validate("abc.xyz@bl.co.in"));
 
     }
 
@@ -114,7 +116,7 @@ public class UserRegistrationTest {
 =======
     public void givenPhoneNum_WhenSpaceIsMentioned_ShouldReturnTrue() {
 
-        Assert.assertEquals("valid",userRegistration.toValidatePhone.validate("91 9852527734"));
+        Assert.assertEquals(true,userRegistration.toValidatePhone.validate("91 9852527734"));
 
 >>>>>>> uc13-lambdaFunctionValidate
     }
@@ -132,63 +134,63 @@ public class UserRegistrationTest {
         Assertions.assertFalse(result);
 =======
 
-        Assert.assertEquals("Invalid",userRegistration.toValidatePhone.validate("985252773"));
+        Assert.assertEquals(false,userRegistration.toValidatePhone.validate("985252773"));
 
 >>>>>>> uc13-lambdaFunctionValidate
     }
 
     @Test
     public void givenPhoneNum_WhenNotStartWith91_ShouldReturnFalse() {
-        Assert.assertEquals("Invalid",userRegistration.toValidatePhone.validate("1245637898"));
+        Assert.assertEquals(false,userRegistration.toValidatePhone.validate("1245637898"));
 
     }
 
     //for password testcases
     @Test
     public void givenPassword_WhenMin8Chars_ShouldReturnTrue() {
-        Assert.assertEquals("valid",userRegistration.toValidatePassword.validate("ndKL1#6p"));
+        Assert.assertEquals(true,userRegistration.toValidatePassword.validate("ndKL1#6p"));
 
     }
 
     @Test
     public void givenPassword_WhenHasLessChars_ShouldReturnFalse() {
-        Assert.assertEquals("Invalid",userRegistration.toValidatePassword.validate("lp7O%"));
+        Assert.assertEquals(false,userRegistration.toValidatePassword.validate("lp7O%"));
 
     }
 
     @Test
     public void givenPassword_WhenAtleast1UpperCase_ShouldReturnTrue() {
-        Assert.assertEquals("valid",userRegistration.toValidatePassword.validate("lpk7^mn8"));
+        Assert.assertEquals(false,userRegistration.toValidatePassword.validate("lpk7^mn8"));
 
     }
 
     @Test
     public void givenPassword_WhenAtleast1Number_ShouldReturnTrue() {
-        Assert.assertEquals("valid",userRegistration.toValidatePassword.validate("lpK8pl*"));
+        Assert.assertEquals(false,userRegistration.toValidatePassword.validate("lpK8pl*"));
 
     }
 
     @Test
     public void givenPassword_WhenNoNumeric_ShouldReturnFalse() {
-        Assert.assertEquals("Invalid",userRegistration.toValidatePassword.validate("pDlkopu&"));
+        Assert.assertEquals(false,userRegistration.toValidatePassword.validate("pDlkopu&"));
 
     }
 
     @Test
     public void givenPassword_WhenHasExact1SpecialChar_ShouldReturnTrue() {
-        Assert.assertEquals("valid",userRegistration.toValidatePassword.validate("Po78lu^l"));
+        Assert.assertEquals(true,userRegistration.toValidatePassword.validate("Po78lu^l"));
         ;
     }
 
     @Test
     public void givenPassword_WhenNoSpecialChar_ShouldReturnFlase() {
-        Assert.assertEquals("Invalid",userRegistration.toValidatePassword.validate("78lyphj"));
+        Assert.assertEquals(false,userRegistration.toValidatePassword.validate("78lyphj"));
 
     }
 
     @Test
     public void givenPassword_WhenHasMoreThan1SpecialChar_ShouldReturnFalse() {
-        Assert.assertEquals("Invalid",userRegistration.toValidatePassword.validate("%&7pD88"));
+        Assert.assertEquals(false,userRegistration.toValidatePassword.validate("%&7pD88"));
 
 
     }
