@@ -4,8 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    private static final String NAME_PATTERN = "^[A-Z][a-z]{2,}";;
-    private static final String EMAIL_PATTERN = "^[a-z]{3}\\.[a-zA-Z]{3}\\@[a-zA-Z]{3,10}\\.[co]{2}\\.[a-z]{2}$";
+    private static final String NAME_PATTERN = "^[A-Z][a-z]{2,}";
+    private static final String EMAIL_PATTERN = "^[a-z]{3}\\.[a-zA-Z]{3}\\@[a-zA-Z]{2,10}\\.[co]{2}\\.[a-z]{2}$";
     private static final String PHONE_PATTERN = "^[0-9]{2}\\s[0-9]{10}$";
     private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()]).{8,}$";
     public UserRegistrationIFunction toValidatelastName;
@@ -23,7 +23,7 @@ public class UserRegistration {
         // initializing checkException
         public void customException(boolean result) throws UserRegistrationException {
             try {
-                if (result == true)
+                if (result == false)
                     throw new UserRegistrationException(UserRegistrationException.ExceptionType.ENTERED_INVALID, "Please give valid Entry");
             }catch (UserRegistrationException exception){
                 throw new UserRegistrationException(UserRegistrationException.ExceptionType.ENTERED_NULL, "Entry Should be not null ");
